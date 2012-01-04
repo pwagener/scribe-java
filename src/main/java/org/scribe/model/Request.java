@@ -77,8 +77,15 @@ class Request
     if (connection == null)
     {
       System.setProperty("http.keepAlive", connectionKeepAlive ? "true" : "false");
-      connection = (HttpURLConnection) new URL(completeUrl).openConnection();
+      connection = openConnection(completeUrl);
     }
+  }
+
+  /**
+   * Open a connection to the given URL.
+   */
+  protected HttpURLConnection openConnection(String completeUrl) {
+    return (HttpURLConnection) new URL(completeUrl).openConnection();
   }
 
   /**
