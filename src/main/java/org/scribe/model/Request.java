@@ -83,8 +83,11 @@ class Request
 
   /**
    * Open a connection to the given URL.
+   * @param completeUrl The URL to connect to
+   * @throws IOException if we fail to open the connection
+   * @return The open connection
    */
-  protected HttpURLConnection openConnection(String completeUrl) {
+  protected HttpURLConnection openConnection(String completeUrl) throws IOException {
     return (HttpURLConnection) new URL(completeUrl).openConnection();
   }
 
